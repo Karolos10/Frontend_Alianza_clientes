@@ -5,18 +5,34 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ClienteListComponent } from './components/cliente-list/cliente-list.component';
+import { ClienteAddComponent } from './components/cliente-add/cliente-add.component';
+import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes : Routes = [
+  {
+    path:'', component:ClienteListComponent,
+  },
+  {
+    path:'clientes/agregar', component: ClienteAddComponent
+  }
+
+]
 
 @NgModule({
   declarations: [
     AppComponent,
-    ClienteListComponent
+    ClienteListComponent,
+    ClienteAddComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
-  bootstrap: [ClienteListComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
