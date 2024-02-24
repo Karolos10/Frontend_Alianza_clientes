@@ -8,7 +8,7 @@ import { Cliente } from '../cliente';
 })
 export class ClienteService {
 
-  private api : string = 'http://localhost:8080'
+  private api : string = 'http://localhost:8080/api/clientes'
 
   constructor(private http : HttpClient) { }
 
@@ -20,5 +20,9 @@ export class ClienteService {
 
   createCliente(Cliente : Cliente):Observable<Cliente>{
     return this.http.post<Cliente>(this.api, Cliente);
+  }
+
+  deleteCliente(id: number):Observable<any>{
+    return this.http.delete(this.api+'/'+id);
   }
 }

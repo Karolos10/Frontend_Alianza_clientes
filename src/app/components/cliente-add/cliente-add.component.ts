@@ -14,7 +14,7 @@ export class ClienteAddComponent implements OnInit {
   nombreCompleto: string = '';
   email: string = '';
   telefono: string = '';
-  fecha: Date | string = '';
+  fecha: string = '';
 
   constructor(private clienteService: ClienteService) {
 
@@ -24,17 +24,20 @@ export class ClienteAddComponent implements OnInit {
   }
 
   addCliente() {
-    let fechaDate: Date | undefined = this.fecha !== '' ? new Date(this.fecha) : undefined;
-    if (fechaDate instanceof Date) {
-      let cliente = new Cliente(this.id, this.sharedKey, this.nombreCompleto, this.telefono, this.email, fechaDate);
+    //let fechaDate: Date | undefined = this.fecha !== '' ? new Date(this.fecha) : undefined;
+    let cliente = new Cliente(this.id, this.sharedKey, this.nombreCompleto, this.telefono, this.email, this.fecha);
       console.log(cliente);
       this.clienteService.createCliente(cliente).subscribe(res => {
         console.log(res);
+        this.clearForm();
       })
+  }
 
-    } else {
-      console.error('La fecha no es valida');
-    };
+  clearForm(){
+    this.nombreCompleto ='';
+    this.telefono='';
+    this.email='';
+    this.fecha='';
   }
 
 }

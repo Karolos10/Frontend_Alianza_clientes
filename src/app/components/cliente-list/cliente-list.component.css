@@ -1,0 +1,57 @@
+.contenedor{
+
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+
+}
+
+.contenedor_tabla{
+  margin-right: 5%;
+  margin-top: 20px;
+}
+
+.contenedor_image{
+  margin-top: 40px;
+  margin-left: 15%;
+  margin-right: 100px;
+}
+
+th{
+  font-size: 10px;
+}
+
+td{
+  font-size: 9px;
+}
+
+.image_pencil1{
+  display: flex;
+  justify-content: center;
+}
+
+.contenedor_image_button{
+  cursor: pointer;
+}
+
+a.btn.btn-primary{
+  margin-right: 16px;
+  margin-bottom: 15px;
+}
+
+.btn.btn-primary{
+}
+
+.contenedor_image_search{
+  align-items: center;
+  display: flex;
+
+}
+
+.contenedor_image_searc.btn.btn-primary{
+  margin-left: 18px;
+  width: 100%;
+}
+
+

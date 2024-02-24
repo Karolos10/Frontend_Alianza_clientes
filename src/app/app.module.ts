@@ -8,6 +8,8 @@ import { ClienteListComponent } from './components/cliente-list/cliente-list.com
 import { ClienteAddComponent } from './components/cliente-add/cliente-add.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes : Routes = [
   {
@@ -30,6 +32,8 @@ const routes : Routes = [
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    MatSnackBarModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],

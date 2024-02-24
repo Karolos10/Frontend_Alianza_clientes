@@ -8,6 +8,10 @@
 
 }
 
+.principal{
+  display: inline-grid;
+}
+
 .contenedor_image{
   padding-left: 20%;
   height: 0;
