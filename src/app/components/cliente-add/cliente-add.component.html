@@ -17,26 +17,26 @@
       <h5 class="card-title">Create New Client</h5>
       <div class="contenedor-form_input-name">
         <label for="name">Name</label>
-        <input type="text" class="form-control" id="name">
+        <input [(ngModel)]="nombreCompleto" type="text" class="form-control" id="name" name="nombreCompleto">
       </div>
       <div class="contenedor-form_input-phone">
         <label for="phone" class="form-label">Phone</label>
-        <input type="text" class="form-control" id="phone">
+        <input [(ngModel)]="telefono" type="text" class="form-control" id="phone" name="telefono">
       </div>
       <div class="contenedor-form_input-email">
         <label for="email" class="form-label">E-mail</label>
-        <input type="text" class="form-control" id="email">
+        <input [(ngModel)]="email" type="text" class="form-control" id="email" name="email">
       </div>
       <div class="contenedor-form_input-start">
         <label for="start" class="form-label">Start date</label>
-        <input type="date" class="form-control" id="start">
+        <input [(ngModel)]="fecha" type="date" class="form-control" id="start" name="fecha">
       </div>
       <div class="contenedor-form_input-end">
         <label for="end" class="form-label">End Date</label>
         <input type="date" class="form-control" id="end">
       </div>
       <div class="boton_btn">
-        <button type="submit" class="btn btn-primary">OK</button>
+        <button type="submit" class="btn btn-primary" (click)="addCliente()">OK</button>
       </div>
     </form>
   </div>

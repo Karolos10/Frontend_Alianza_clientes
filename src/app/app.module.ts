@@ -11,7 +11,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes : Routes = [
   {
-    path:'', component:ClienteListComponent,
+    path:'clientes/inicio', component:ClienteListComponent,
   },
   {
     path:'clientes/agregar', component: ClienteAddComponent
