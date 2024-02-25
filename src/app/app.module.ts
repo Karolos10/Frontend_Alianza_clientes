@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ClienteSearchComponent } from './components/cliente-search/cliente-search.component';
 
 const routes : Routes = [
   {
@@ -20,7 +21,11 @@ const routes : Routes = [
   },
   {
     path:'clientes/editar/:id', component: ClienteAddComponent
+  },
+  {
+    path:'clientes/search', component: ClienteSearchComponent
   }
+
 
 ]
 
@@ -28,7 +33,8 @@ const routes : Routes = [
   declarations: [
     AppComponent,
     ClienteListComponent,
-    ClienteAddComponent
+    ClienteAddComponent,
+    ClienteSearchComponent
   ],
   imports: [
     BrowserModule,

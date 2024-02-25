@@ -8,51 +8,54 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cliente-list',
+  template: '<button (click)="exportarCSV()">Exportar a CSV</button>',
   templateUrl: './cliente-list.component.html',
   styleUrls: ['./cliente-list.component.css'],
-  animations: [
-    // ... verifica si hay algo relacionado con @state.done y retíralo si es necesario
-  ]
+  animations: []
 })
-export class ClienteListComponent implements OnInit{
+export class ClienteListComponent implements OnInit {
 
-  clientes : Cliente [] = [];
+  clientes: Cliente[] = [];
 
-  constructor(private clienteService : ClienteService, private snackBar : MatSnackBar, private activateRouter : ActivatedRoute, private router : Router){}
+  constructor(private clienteService: ClienteService,
+    private snackBar: MatSnackBar,
+    private activateRouter: ActivatedRoute,
+    private router: Router) { }
+
+  exportarCSV(): void {
+    this.clienteService.exportarCSV().subscribe(
+      (data) => {
+        this.downloadArchivoCSV(data);
+      },
+      (error) => {
+        console.error('Error al exportar a CSV', error);
+      }
+    );
+  }
+
+  downloadArchivoCSV(data: any): void {
+    const blob = new Blob([data], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'clients.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
 
   ngOnInit(): void {
-    //this.upload();
     this.listClientes();
-    //this.upload();
   }
 
-  upload():void{
-    this.activateRouter.params.subscribe( e => {
-      let id = e['id'];
-      if(id){
-        this.clienteService.get(id).subscribe(es=>this.clientes=es
-        );
-      }
-    })
-  }
-
- /* update():void{
-    this.clienteService.update().subscribe{
-      res => {
-        this.router.navigate(['/clientes/inicio'])
-      }
-    }
-  }  */
-
-  listClientes(){
-    this.clienteService.getClienteList().subscribe( data => {
+  listClientes() {
+    this.clienteService.getClienteList().subscribe(data => {
       this.clientes = data;
-      console.log(this.clientes);
     });
   }
 
-  deleteClient(id : number){
-    this.clienteService.deleteClient(id).subscribe( () => {
+  deleteClient(id: number) {
+    this.clienteService.deleteClient(id).subscribe(() => {
       this.listClientes();
       this.openSnackBar("Record successfully deleted", 'cerrar');
     });

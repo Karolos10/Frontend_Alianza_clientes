@@ -20,30 +20,31 @@
   </div>
   <div class="contenedor_form">
     <form class="contenedor-form_input">
-      <h5 class="card-title">Create New Client</h5>
+      <h5 class="card-title">Search Client</h5>
       <div class="contenedor-form_input-name">
         <label for="name">Name</label>
-        <input [(ngModel)]="nameComplete" type="text" class="form-control" id="name" name="nombreCompleto">
+        <input type="text" class="form-control" id="name" name="nombreCompleto" placeholder="Enter name">
       </div>
       <div class="contenedor-form_input-email">
-        <label for="email" class="form-label">E-mail</label>
-        <input [(ngModel)]="email" type="text" class="form-control" id="email" name="email">
+        <label for="phone" class="form-label">E-mail</label>
+        <input type="text" class="form-control" id="phone" name="email" placeholder="Enter phone">
       </div>
       <div class="contenedor-form_input-phone">
-        <label for="phone" class="form-label">Phone</label>
-        <input [(ngModel)]="phone" type="text" class="form-control" id="telefono" name="telefono">
+        <label for="email" class="form-label">Phone</label>
+        <input type="text" class="form-control" id="email" name="telefono" placeholder="Enter email">
       </div>
       <div class="contenedor-form_input-start">
         <label for="start" class="form-label">Start date</label>
-        <input [(ngModel)]="dateDay" type="date" class="form-control" id="start" name="fecha">
+        <input type="date" class="form-control" id="start" name="fecha" placeholder="Enter start">
       </div>
       <div class="contenedor-form_input-end">
         <label for="end" class="form-label">End Date</label>
         <input type="date" class="form-control" id="end">
       </div>
       <div class="boton_btn">
-        <button type="submit" class="btn btn-primary" (click)="addCliente()">OK</button>
+        <button type="submit" class="btn btn-primary">Search</button>
       </div>
     </form>
   </div>
 </div>
+
