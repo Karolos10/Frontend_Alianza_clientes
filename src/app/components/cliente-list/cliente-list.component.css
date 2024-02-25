@@ -55,3 +55,18 @@ input{
   margin-bottom: 15px;
   margin-right: 15px;
 }
+
+@media only screen and (max-width: 600px) {
+  .contenedor {
+    flex-direction: column;
+  }
+
+  .contenedor_image {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  th, td {
+    font-size: 10px;
+  }
+}
