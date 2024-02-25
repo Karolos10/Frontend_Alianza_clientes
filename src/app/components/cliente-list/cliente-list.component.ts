@@ -17,6 +17,8 @@ export class ClienteListComponent implements OnInit {
 
   clientes: Cliente[] = [];
 
+  keyWord: String = '';
+
   constructor(private clienteService: ClienteService,
     private snackBar: MatSnackBar,
     private activateRouter: ActivatedRoute,
@@ -65,6 +67,18 @@ export class ClienteListComponent implements OnInit {
     this.snackBar.open(message, action, {
       duration: 2000,
     });
+  }
+
+  searchCustomer(){
+    this.clienteService.searchCustomer(String(this.keyWord)).subscribe( data => {
+      this.clientes = data;
+      this.clearForm();
+      console.log(data);
+    })
+  }
+
+  clearForm() {
+    this.keyWord = '';
   }
 
 }

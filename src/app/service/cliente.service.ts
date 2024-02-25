@@ -37,4 +37,9 @@ export class ClienteService {
   exportarCSV(): Observable<any> {
     return this.http.get(`${this.api}/exportar-csv`, { responseType: 'text' });
   }
+
+  searchCustomer(keyWord: string):Observable<any>{
+    const url = `${this.api}/search?keyWord=${keyWord}`;
+    return this.http.get(url);
+  }
 }

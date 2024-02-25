@@ -1,9 +1,13 @@
 .principal{
-  margin-top: 30%;
+  margin-top: 20%;
   display: flex;
   justify-content: center;
 }
 
 h1{
   font-size: xxx-large;
+}
+
+button{
+  margin-left: 10px;
 }
