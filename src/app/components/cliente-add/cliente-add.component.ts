@@ -27,7 +27,7 @@ export class ClienteAddComponent implements OnInit {
     //let fechaDate: Date | undefined = this.fecha !== '' ? new Date(this.fecha) : undefined;
     let cliente = new Cliente(this.id, this.sharedKey, this.nombreCompleto, this.telefono, this.email, this.fecha);
       console.log(cliente);
-      this.clienteService.createCliente(cliente).subscribe(res => {
+      this.clienteService.createClient(cliente).subscribe(res => {
         console.log(res);
         this.clearForm();
       })

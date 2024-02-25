@@ -17,6 +17,9 @@ const routes : Routes = [
   },
   {
     path:'clientes/agregar', component: ClienteAddComponent
+  },
+  {
+    path:'clientes/editar/:id', component: ClienteAddComponent
   }
 
 ]

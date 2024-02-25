@@ -18,11 +18,19 @@ export class ClienteService {
 
   }
 
-  createCliente(Cliente : Cliente):Observable<Cliente>{
+  get(id : number):Observable<Cliente []>{
+    return this.http.get<Cliente []>(this.api+'/'+id);
+  }
+
+  createClient(Cliente : Cliente):Observable<Cliente>{
     return this.http.post<Cliente>(this.api, Cliente);
   }
 
-  deleteCliente(id: number):Observable<any>{
+  update(cliente : Cliente):Observable<Cliente []>{
+    return this.http.put<Cliente []>(this.api, cliente);
+  }
+
+  deleteClient(id: number):Observable<any>{
     return this.http.delete(this.api+'/'+id);
   }
 }
