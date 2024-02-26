@@ -19,11 +19,13 @@
 }
 
 th {
-  font-size: 10px;
+  text-align: center;
+  font-size: 7px;
 }
 
 td {
-  font-size: 9px;
+  text-align: center;
+  font-size: 7px;
 }
 
 .image_pencil1 {
