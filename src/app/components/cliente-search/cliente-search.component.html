@@ -1,50 +1,79 @@
 <div class="principal">
   <h1>Customer Registration</h1>
-<a class="btn btn-primary" routerLink="/clientes/inicio"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sign-turn-left" viewBox="0 0 16 16">
-  <path d="M11 8.5A2.5 2.5 0 0 0 8.5 6H7V4.534a.25.25 0 0 0-.41-.192L4.23 6.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 7 8.466V7h1.5A1.5 1.5 0 0 1 10 8.5V11h1z"/>
-  <path fill-rule="evenodd" d="M6.95.435c.58-.58 1.52-.58 2.1 0l6.515 6.516c.58.58.58 1.519 0 2.098L9.05 15.565c-.58.58-1.519.58-2.098 0L.435 9.05a1.48 1.48 0 0 1 0-2.098zm1.4.7a.495.495 0 0 0-.7 0L1.134 7.65a.495.495 0 0 0 0 .7l6.516 6.516a.495.495 0 0 0 .7 0l6.516-6.516a.495.495 0 0 0 0-.7L8.35 1.134Z"/>
-</svg>  Return to</a>
+  <a class="btn btn-primary" routerLink="/clientes/inicio"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+      height="16" fill="currentColor" class="bi bi-sign-turn-left" viewBox="0 0 16 16">
+      <path
+        d="M11 8.5A2.5 2.5 0 0 0 8.5 6H7V4.534a.25.25 0 0 0-.41-.192L4.23 6.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 7 8.466V7h1.5A1.5 1.5 0 0 1 10 8.5V11h1z" />
+      <path fill-rule="evenodd"
+        d="M6.95.435c.58-.58 1.52-.58 2.1 0l6.515 6.516c.58.58.58 1.519 0 2.098L9.05 15.565c-.58.58-1.519.58-2.098 0L.435 9.05a1.48 1.48 0 0 1 0-2.098zm1.4.7a.495.495 0 0 0-.7 0L1.134 7.65a.495.495 0 0 0 0 .7l6.516 6.516a.495.495 0 0 0 .7 0l6.516-6.516a.495.495 0 0 0 0-.7L8.35 1.134Z" />
+    </svg> Return to</a>
 </div>
 <div class="contenedor">
-  <div class="contenedor_image">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person"
-      viewBox="0 0 16 16">
-      <path
-        d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
-    </svg>
-    <a href="">Clients</a>
-    <p>Clients</p>
-    <p>Clients look history</p>
-    <p>Emergency PIN configuration</p>
-    <p>Emergency PIN history</p>
-  </div>
   <div class="contenedor_form">
     <form class="contenedor-form_input">
       <h5 class="card-title">Search Client</h5>
       <div class="contenedor-form_input-name">
         <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" name="nombreCompleto" placeholder="Enter name">
+        <input type="text" class="form-control" [(ngModel)]="keyWord" id="name" name="nombreCompleto"
+          placeholder="Enter name">
       </div>
       <div class="contenedor-form_input-email">
         <label for="phone" class="form-label">E-mail</label>
-        <input type="text" class="form-control" id="phone" name="email" placeholder="Enter phone">
+        <input type="text" class="form-control" placeholder="Enter phone">
       </div>
       <div class="contenedor-form_input-phone">
         <label for="email" class="form-label">Phone</label>
-        <input type="text" class="form-control" id="email" name="telefono" placeholder="Enter email">
+        <input type="text" class="form-control" placeholder="Enter email">
       </div>
       <div class="contenedor-form_input-start">
         <label for="start" class="form-label">Start date</label>
-        <input type="date" class="form-control" id="start" name="fecha" placeholder="Enter start">
+        <input type="date" class="form-control" placeholder="Enter start">
       </div>
       <div class="contenedor-form_input-end">
         <label for="end" class="form-label">End Date</label>
-        <input type="date" class="form-control" id="end">
+        <input type="date" class="form-control">
       </div>
       <div class="boton_btn">
-        <button type="submit" class="btn btn-primary">Search</button>
+        <button type="submit" class="btn btn-primary" (click)="searchCustomer()">Search</button>
       </div>
     </form>
   </div>
 </div>
 
+<div class="contenedor">
+  <div class="contenedor_tabla">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Shared Key</th>
+          <th scope="col">Business ID</th>
+          <th scope="col">E-mail</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Data Added</th>
+          <th scope="col">Update</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of clientes">
+          <td>{{c.sharedKey}}</td>
+          <td>{{c.nombreCompleto}}</td>
+          <td>{{c.email}}</td>
+          <td>{{c.telefono}}</td>
+          <td>{{c.fecha}}</td>
+          <td><button class="btn btn-primary" [routerLink]="['/clientes/editar/', c.id]"><svg
+                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil"
+                viewBox="0 0 16 16">
+                <path
+                  d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325" />
+              </svg></button></td>
+          <td><button class="btn btn-danger" (click)="deleteClient(c.id)"><svg xmlns="http://www.w3.org/2000/svg"
+                width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                <path
+                  d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+              </svg></button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

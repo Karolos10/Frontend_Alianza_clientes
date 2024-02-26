@@ -21,7 +21,6 @@
   background-color: #7d9ffc;
   margin-right: 5%;
   width: 50%;
-  /* Ajusta según tus necesidades */
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -111,21 +110,11 @@ p {
   }
 
   .contenedor_form {
-    width: 80%;
+    width: 100%;
     margin-right: 0;
-    margin-bottom: 10px;
   }
 
   .contenedor_image {
     padding-left: 10%;
-  }
-
-  label {
-    width: 100%;
-    margin-right: 0;
-  }
-
-  input {
-    width: 100%;
   }
 }
